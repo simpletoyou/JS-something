@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+</head>
+<body>
+    <script>
+
+       class Student {
+           constructor(name,score) {
+               this.name = name;
+               this.score = score
+           }
+           // 实现继承方法
+           intro() {
+               console.log(`我是${this.name},我的分数是${this.score}`)
+           }
+           
+       }
+       console.log('Student',Student)
+       // 显式原型
+       console.log('Student---prototype',Student.prototype)
+       const s = new Student("Emmie",100)
+       console.log('s=',s)
+       // 隐式原型，会指向我们构建这个类的显式原型
+       console.log('s=',s.__proto__)
+
+       const judge = Student.prototype===s.__proto__
+       console.log('judge:',judge)
+       // 隐式原型
+    //    s.intro()
+    //    s.drink()
+       
+   
+   
+      
+   </script>
+</body>
+</html>

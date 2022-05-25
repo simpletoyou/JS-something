@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+     // student与teacher都有name属性，可以新建一个构造函数person，提取共同属性
+     // 子类继承父类构造函数，并把参数进行传递就可以了
+
+     class Person  {
+        constructor(name) {
+            this.name = name
+        }
+        drink() {
+            console.log(`${this.name}---drink`)
+        }
+    }
+
+    // 继承Person
+    class Student extends Person {
+        constructor(name,score) {
+            super(name);
+            this.score = score
+        }
+        // 实现继承方法
+        intro() {
+            console.log(`我是${this.name},我的分数是${this.score}`)
+        }
+        
+    }
+    const s = new Student("Emmie",100)
+    console.log('s=',s)
+    s.intro()
+    s.drink()
+
+    // 继承Person
+    class Teacher extends Person{
+        constructor(name, object) {
+            super(name);
+            this.object = object
+        }
+
+        teach() {
+            console.log(`我是${this.name},我授课科目是${this.object}`)
+        }
+    }
+
+    const t = new Teacher("陈老师","前端开发")
+    console.log('t=',t)
+    t.teach()
+    t.drink()
+
+    // hasOwnProperty:t.hasOwnProperty('drink')-false
+    // 判断属性或者方法是否在该对象本身原型链上
+
+    // 所有对象源头与Object
+    // 有hasOwnProperty方法，与__proto__(指向null)
+
+    console.log(t instanceof Teacher,t instanceof Person,t instanceof Object,t instanceof Array)
+    //输出 true true true false
+
+
+   
+</script>
+</html>

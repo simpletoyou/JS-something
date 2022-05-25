@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instanceOf</title>
+</head>
+<body>
+    <script>
+        const object = {}
+        const array = []
+        console.log('result object---',typeof object) // 输出object
+        console.log('result array---',typeof array) //输出object
+
+        const flagObject = object instanceof Array;
+        const flagArray = array instanceof Array;
+        console.log('result object(instanceof)---',flagObject) // 输出false
+        console.log('result array(instanceof)---',flagArray) //输出true
+    </script>
+</body>
+</html>

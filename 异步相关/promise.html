@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        // async function fun() {
+        //     console.log('1');
+        //     let two = await Promise.resolve('2');
+        //     console.log(two);
+        //     console.log('3');
+        //     return Promise.resolve('This is retuen')
+        // }
+        // fun().then(value=>{
+        //     console.log('value:',value)
+        // })
+
+        let getData = async () => {
+            const url = 'https://gorest.co.in/public/v1/users';
+            //     let res1 = await fetch(`${url}/1/`)
+            //     let json1 = await res1.json();
+            //     let name1 = json1.data.name;
+            //     console.log('res1:',res1)
+            //     console.log('json1:',json1)
+            //     console.log('name1:',name1)
+
+            try {
+                let res = await Promise.all([
+                    fetch(`${url}/1/`), fetch(`${url}/4/`), fetch(`${url}/6/`)
+                ])
+                console.log('res:', res)
+                let json = res.map(val => val.json())
+                console.log('json:', json);
+
+
+                let result = await Promise.all(json)
+                console.log('result:', result);
+
+                result.map(val => {
+                    console.log(val.data.name);
+                })
+            } catch (error) {
+                console.log(error);
+            }
+
+
+
+        }
+
+        getData()
+
+
+
+    </script>
+
+</body>
+
+</html>

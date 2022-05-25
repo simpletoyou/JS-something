@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 在script标签内引用的其他资源不会出现问题？
+       在设计script标签时就是允许在别的源请求脚本，这个方法叫做JSONP。
+       -- 是适用于get请求，不支持post
+    -->
+    <!-- CORS核心：设置头部Access-Control-Allow-Origin：* -->
+    <!-- 设置反向代理：
+    客户端端口号为1111，服务器端口号为3333，客户端的页面请求服务端/api的资源，则会存在跨域问题。如果服务器配置了反向代理2222，就可以让前端页面请求反向代理，反向代理再把请求转给服务器，因为反向代理和服务器这边都属于服务器之间的沟通，就不像前端会有浏览器的同源策略限制，因此也就解决了跨域的问题。（nginx配置） -->
+</body>
+</html>
